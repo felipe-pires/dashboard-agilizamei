@@ -1,0 +1,46 @@
+img {
+  height: 3rem;
+
+  &#logo {
+    height: 5rem;
+  }
+}
+
+.header {
+  justify-content: center;
+  align-items: center;
+  height: 10%;
+  background-color: #67c7aa;
+  padding: 1rem;
+  button{
+   color: white;
+  }
+  border-bottom: 1px solid white;
+}
+
+span {
+  display: flex;
+  align-items: center;
+
+  h1 {
+    color: white;
+    font-size: 1.5rem;
+  }
+}
+
+div{
+  width: 50%;
+  height: 100%;
+   display: flex;
+   
+
+  &.container-logo{
+    align-items: center;
+    justify-content: right;
+  }
+
+  &.container-titulo{
+    align-items: center;
+    justify-content: left;
+  }
+}

@@ -1,0 +1,27 @@
+<main>
+    <section class="form-section">
+        <img src="/assets/svg/AG.png" width="150px"/>
+       <h2>{{ title }}</h2>
+       <ng-content></ng-content>
+       <div class="btn-wrapper">
+            <button 
+                class="btn-primary" 
+                (click)="submit()"
+                [disabled]="disablePrimaryBtn"
+            >
+                {{ primaryBtnText }}
+            </button>
+            <!-- <div class="divider">
+                <div></div>
+                <span>or</span>
+                <div></div>
+            </div>
+            <button class="btn-secondary" (click)="navigate()">{{ secondaryBtnText }}</button> -->
+       </div>
+    </section>
+    <section class="main-section">
+        <h2>Organize seu negócio, cresça com agilidade!</h2>
+        <img src="assets/svg/undraw_team_up_re_84ok.svg" />
+    </section>
+</main>
+

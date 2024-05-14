@@ -1,0 +1,44 @@
+.content-default {
+  height: 90%;
+}
+
+.content-login {
+  height: 100%;
+}
+.menu {
+  background-color: #67c7aa;
+  color: white;
+}
+
+.list {
+  color: white;
+}
+
+.item {
+  color: white;
+}
+
+mat-list-item{
+  border-bottom: 1px solid white;
+  
+}
+
+a {
+  color: white;
+ 
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+mat-list-item:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: .7s all;   
+}
+
+.router-link-active {
+  font-weight: bold;
+}
+
+mat-drawer-content {
+  background-color: white;
+}

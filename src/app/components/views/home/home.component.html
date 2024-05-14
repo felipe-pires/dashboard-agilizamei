@@ -1,0 +1,23 @@
+<div class="container">
+  <mat-card class="card">
+    <mat-card-title>Número de Vendas Hoje</mat-card-title>
+    <mat-card-content>{{ totalVendasHoje }}</mat-card-content>
+  </mat-card>
+
+  <mat-card class="card">
+    <mat-card-title class="title"
+      ><span>Total(R$) de Vendas Hoje</span></mat-card-title
+    >
+    <mat-card-content>R$ {{ totalVendidoHoje }}</mat-card-content>
+  </mat-card>
+
+  <mat-card class="card">
+    <mat-card-title>Total de Clientes Atendidos</mat-card-title>
+    <mat-card-content>{{ totalDistinctCustomers }}</mat-card-content>
+  </mat-card>
+
+  <mat-card class="grafico">
+    <mat-card-title class="title">Total de vendas</mat-card-title>
+    <mat-card-content><app-sale-by-date></app-sale-by-date></mat-card-content>
+  </mat-card>
+</div>

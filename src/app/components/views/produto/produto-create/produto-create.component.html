@@ -1,0 +1,43 @@
+<form>
+  <h1>Criar Novo Produto</h1>
+  <mat-form-field class="form" appearance="outline">
+    <mat-label>Nome</mat-label>
+    <input matInput [(ngModel)]="produto.name" type="text" name="name" required />
+  </mat-form-field>
+
+  <mat-form-field class="form" appearance="outline" re>
+    <mat-label>Preço de Venda</mat-label>
+    <input matInput [(ngModel)]="produto.price" required type="number" name="price">
+  </mat-form-field>
+
+  <mat-form-field class="form" appearance="outline">
+    <mat-label>Preço de Custo</mat-label>
+    <input matInput [(ngModel)]="produto.cost" type="number" name="cost">
+  </mat-form-field>
+ 
+  <mat-form-field class="form" appearance="outline">
+    <mat-label>Data de Validade</mat-label>
+    <input required matInput [(ngModel)]="produto.expirationDate" type="date" name="expirationDate">
+  </mat-form-field>
+
+  <mat-form-field class="form" appearance="outline">
+    <mat-label>Quantidade</mat-label>
+    <input required matInput [(ngModel)]="produto.amount" type="number" name="amount">
+  </mat-form-field>
+
+  <mat-form-field class="form" appearance="outline">
+    <mat-label>Tipo</mat-label>
+    <input required matInput [(ngModel)]="produto.typeProduct" type="text" name="typeProduct">
+  </mat-form-field>
+
+  <mat-form-field class="form" appearance="outline">
+    <mat-label>Descrição</mat-label>
+    <textarea matInput required [(ngModel)]="produto.description" type="text" name="description"></textarea>
+  </mat-form-field>
+
+
+  <div class="buttons">
+    <button (click)="create()" mat-stroked-button color="primary">Criar</button>
+    <button (click)="cancel()" mat-stroked-button color="warn">Cancelar</button>
+  </div>
+</form>
