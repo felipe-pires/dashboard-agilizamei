@@ -36,7 +36,6 @@ export class LoginComponent {
   }
 
   submit() {
-    alert('sss')
     this.service
       .login(this.loginForm.value.email, this.loginForm.value.password)
       .subscribe({

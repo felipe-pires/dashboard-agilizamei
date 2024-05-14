@@ -2,6 +2,7 @@
     title="Faça Login em Sua Conta"
     primaryBtnText="Entrar"
     secondaryBtnText="Cadastre-se"
+    (submit)="submit()"
     [disablePrimaryBtn]="!loginForm.valid"
 >
     <form [formGroup]="loginForm">

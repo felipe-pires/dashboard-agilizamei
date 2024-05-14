@@ -17,12 +17,10 @@ export class DefaultLoginLayoutComponent {
   @Output('navigate') onNavigate = new EventEmitter();
 
   submit() {
-    alert('aqui')
     this.onSubmit.emit();
   }
 
   navigate() {
-    alert('aqui 1')
     this.onNavigate.emit();
   }
 }
