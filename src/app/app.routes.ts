@@ -28,7 +28,7 @@ export const routes: Routes = [
     {
         path: "produtos",
         component: ProdutoReadComponent,
-        canActivate: [AuthGuard]
+        // canActivate: [AuthGuard]
     },
     {
         path: "produtos/create",
