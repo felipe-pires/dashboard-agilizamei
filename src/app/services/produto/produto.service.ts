@@ -13,11 +13,7 @@ export class ProdutoService {
   baseUrl: string = enviroment.baseUrl;
 
    headers = new HttpHeaders({
-    'Content-Type': 'application/json',
     'Authorization': 'Bearer ' + sessionStorage.getItem('auth-token'),
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
   });
 
   constructor(
