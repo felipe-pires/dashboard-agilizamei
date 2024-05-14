@@ -12,14 +12,6 @@ import { Router } from '@angular/router';
 export class LoginService {
   baseUrl: string = enviroment.baseUrl;
 
-  headers = new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Credentials': 'true',
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
-  });
-
   mostrarMenu = new EventEmitter<boolean>();
 
   constructor(
@@ -31,7 +23,7 @@ export class LoginService {
   login(email: string, password: string) {
     const url = `${this.baseUrl}/auth/login`;
     return this.http
-      .post<LoginResponse>(url, { email, password }, { headers: this.headers })
+      .post<LoginResponse>(url, { email, password })
       .pipe(
         tap(
           (value) => {
