@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { enviroment } from '../../../environments/enviroments';
 import { LoginResponse } from '../../types/login-response.type';
 import { Observable, tap } from 'rxjs';
@@ -12,6 +12,15 @@ import { Router } from '@angular/router';
 export class LoginService {
   baseUrl: string = enviroment.baseUrl;
 
+  headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + sessionStorage.getItem('auth-token'),
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
+  });
+
+
   mostrarMenu = new EventEmitter<boolean>();
 
   constructor(
@@ -22,7 +31,7 @@ export class LoginService {
 
   login(email: string, password: string) {
     const url = `${this.baseUrl}/auth/login`;
-    return this.http.post<LoginResponse>(url, { email, password }).pipe(
+    return this.http.post<LoginResponse>(url, { email, password }, { headers: this.headers }).pipe(
       tap(
         (value) => {
           sessionStorage.setItem('auth-token', value.token);
