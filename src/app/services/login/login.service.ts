@@ -14,11 +14,11 @@ export class LoginService {
 
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Credentials': 'true',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
   });
-
 
   mostrarMenu = new EventEmitter<boolean>();
 
@@ -30,21 +30,23 @@ export class LoginService {
 
   login(email: string, password: string) {
     const url = `${this.baseUrl}/auth/login`;
-    return this.http.post<LoginResponse>(url, { email, password }, { headers: this.headers }).pipe(
-      tap(
-        (value) => {
-          sessionStorage.setItem('auth-token', value.token);
-          localStorage.setItem('auth-token', value.token);
-          sessionStorage.setItem('username', value.name);
+    return this.http
+      .post<LoginResponse>(url, { email, password }, { headers: this.headers })
+      .pipe(
+        tap(
+          (value) => {
+            sessionStorage.setItem('auth-token', value.token);
+            localStorage.setItem('auth-token', value.token);
+            sessionStorage.setItem('username', value.name);
 
-          this.mostrarMenu.emit(true);
-          this.router.navigate(['home']);
-        },
-        (err) => {
-          this.mostrarMenu.emit(false);
-        }
-      )
-    );
+            this.mostrarMenu.emit(true);
+            this.router.navigate(['home']);
+          },
+          (err) => {
+            this.mostrarMenu.emit(false);
+          }
+        )
+      );
   }
 
   logout(): void {
