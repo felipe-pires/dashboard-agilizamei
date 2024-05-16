@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, LOCALE_ID } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
@@ -9,6 +9,12 @@ import { TableComponent } from '../../charts/produto-charts/table/table.componen
 import { SaleByDateComponent } from '../../charts/sale-by-date/sale-by-date.component';
 import { ChartsService } from '../../../services/charts/charts.service';
 import { format } from 'date-fns-tz';
+
+import localePt from '@angular/common/locales/pt';
+import localePtExtra from '@angular/common/locales/extra/pt';
+import { CommonModule, registerLocaleData } from '@angular/common';
+
+registerLocaleData(localePt, 'pt-BR', localePtExtra);
 
 @Component({
   selector: 'app-home',
@@ -22,10 +28,16 @@ import { format } from 'date-fns-tz';
     RouterOutlet,
     TableComponent,
     SaleByDateComponent,
+    CommonModule
+  ],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt-BR' }
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
+
+
 export class HomeComponent {
   totalVendasHoje = 0;
 

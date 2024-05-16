@@ -3,8 +3,14 @@
     <h1>Produtos</h1>
   </div>
   <button mat-stroked-button color="primary" (click)="criarProdutoComponent()" >Novo Produto</button>
+  
+  <mat-form-field class="mat-mdc-form-field">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. felipe" #input />
+  </mat-form-field>
+
   <div class="mat-elevation-z1 content-table">
-    <table mat-table  [dataSource]="produtos" class="table">
+    <table mat-table  [dataSource]="dataSource" class="table">
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>#</th>
         <td mat-cell *matCellDef="let row">{{ row.id }}</td>
@@ -22,17 +28,17 @@
 
       <ng-container matColumnDef="price">
         <th mat-header-cell *matHeaderCellDef>Preço de venda</th>
-        <td mat-cell *matCellDef="let row">{{ row.price }}</td>
+        <td mat-cell *matCellDef="let row">{{ row.price | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</td>
       </ng-container>
 
       <ng-container matColumnDef="cost">
         <th mat-header-cell *matHeaderCellDef>Preço de custo</th>
-        <td mat-cell *matCellDef="let row">{{ row.cost }}</td>
+        <td mat-cell *matCellDef="let row">{{ row.cost | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</td>
       </ng-container>
 
       <ng-container matColumnDef="expirationDate">
         <th mat-header-cell *matHeaderCellDef>Data de validade lote</th>
-        <td mat-cell *matCellDef="let row">{{ row.expirationDate }}</td>
+        <td mat-cell *matCellDef="let row">{{ row.expirationDate | date: 'dd-MM-yyyy' }}</td>
       </ng-container>
    
       <ng-container matColumnDef="amount">

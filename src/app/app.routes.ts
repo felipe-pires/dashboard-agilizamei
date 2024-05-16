@@ -14,6 +14,10 @@ import { UsuarioReadComponent } from './components/views/usuario/usuario-read/us
 import { UsuarioCreateComponent } from './components/views/usuario/usuario-create/usuario-create.component';
 import { UsuarioDeleteComponent } from './components/views/usuario/usuario-delete/usuario-delete.component';
 import { UsuarioUpdateComponent } from './components/views/usuario/usuario-update/usuario-update.component';
+import { VendaReadComponent } from './components/views/venda/venda-read/venda-read.component';
+import { VendaCreateComponent } from './components/views/venda/venda-create/venda-create.component';
+import { VendaDeleteComponent } from './components/views/venda/venda-delete/venda-delete.component';
+import { VendaUpdateComponent } from './components/views/venda/venda-update/venda-update.component';
 
 export const routes: Routes = [
     {
@@ -83,6 +87,26 @@ export const routes: Routes = [
     {
         path: "usuarios/update/:id",
         component: UsuarioUpdateComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: "vendas",
+        component: VendaReadComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: "vendas/create",
+        component: VendaCreateComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: "vendas/delete/:id",
+        component: VendaDeleteComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: "vendas/update/:id",
+        component: VendaUpdateComponent,
         canActivate: [AuthGuard]
     }
 ];
