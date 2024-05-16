@@ -1,1 +1,52 @@
-<p>venda-create works!</p>
+<form>
+    <h1>Criar Nova Venda</h1>  
+
+    <h2>Adicione o cliente: </h2>
+    <mat-form-field class="form" appearance="outline">
+      
+        <mat-label>Cliente</mat-label>
+        <mat-select required [(ngModel)]="clienteVenda.id" name="customer">
+          @for (cliente of clientes; track cliente) {
+            <mat-option [value]="cliente.id">Nome: {{cliente.name}} / Email: {{cliente.email}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <h2>Adicione os produtos: </h2>
+      <mat-form-field class="form" appearance="outline">
+     
+        <mat-label>Produto</mat-label>
+        <mat-select required [(ngModel)]="produtoModel.id" name="product">
+          @for (produto of produtos; track produto) {
+            <mat-option [value]="produto.id"> {{ produto.name }} </mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+
+      <mat-form-field class="form" appearance="outline">
+        <mat-label>Quantidade</mat-label>
+        <input required matInput [(ngModel)]="itemVenda.amount" type="number" name="amount">
+      </mat-form-field>
+
+      <mat-form-field class="form" appearance="outline">
+        <mat-label>Desconto</mat-label>
+        <input required matInput [(ngModel)]="itemVenda.discount" type="number" name="discount">
+      </mat-form-field>
+  
+    <!-- <mat-form-field class="form" appearance="outline">
+      <mat-label>Telephone</mat-label>
+      <input matInput [(ngModel)]="venda.telephone" type="text" name="telephone">
+    </mat-form-field>
+   
+    <mat-form-field class="form" appearance="outline">
+      <mat-label>Senha</mat-label>
+      <input matInput [(ngModel)]="venda.password" type="text" name="password">
+    </mat-form-field> -->
+  
+    <div class="buttons">
+      <button (click)="create()" mat-stroked-button color="primary">Criar</button>
+      <button (click)="cancel()" mat-stroked-button color="warn">Cancelar</button>
+    </div>
+  </form>
+  

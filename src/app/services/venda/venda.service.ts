@@ -4,6 +4,7 @@ import { enviroment } from '../../../environments/enviroments';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { Venda } from '../../components/views/venda/venda-read/venda.model';
+import { VendaCreate } from '../../components/views/venda/venda-create/vendaCreate.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +20,9 @@ export class VendaService {
     return this.http.get<Venda[]>(url);
   }
 
-  create(venda: Venda): Observable<Venda> {
+  create(venda: VendaCreate): Observable<VendaCreate> {
     const url = `${this.baseUrl}/sale`;
-    return this.http.post<Venda>(url, venda);
+    return this.http.post<VendaCreate>(url, venda);
   }
 
   findById(id: number): Observable<Venda> {
