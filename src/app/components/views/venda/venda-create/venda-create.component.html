@@ -1,4 +1,4 @@
-<form>
+<form (ngSubmit)="adicionarItem()" #form="ngForm">
     <h1>Criar Nova Venda</h1>  
 
     <h2>Adicione o cliente: </h2>
@@ -12,7 +12,11 @@
         </mat-select>
       </mat-form-field>
 
-      <h2>Adicione os produtos: </h2>
+
+
+    <mat-card>
+      <mat-card-content>
+        <h2>Adicione os produtos: </h2>
       <mat-form-field class="form" appearance="outline">
      
         <mat-label>Produto</mat-label>
@@ -33,7 +37,55 @@
         <mat-label>Desconto</mat-label>
         <input required matInput [(ngModel)]="itemVenda.discount" type="number" name="discount">
       </mat-form-field>
+
+      <button class="full-width" [disabled]="!form.form.valid" mat-stroked-button color="primary">
+        <mat-icon>add</mat-icon>
+        Incluir Produto
+    </button>
+
+
+    <h2>items: incluidos:</h2>
+    <table mat-table [dataSource]="dataSource">
+      <!-- Nome da coluna -->
+      <ng-container matColumnDef="product">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let element"> {{element.product.id}} </td>
+      </ng-container>
+    
+      <!-- Quantidade da coluna -->
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef> Quantidade </th>
+        <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+      </ng-container>
   
+      <ng-container matColumnDef="discount">
+        <th mat-header-cell *matHeaderCellDef> Desconto </th>
+        <td mat-cell *matCellDef="let element"> {{element.discount}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="ordemColunasTabela"></tr>
+      <tr mat-row *matRowDef="let row; columns: ordemColunasTabela;"></tr>
+
+      <ng-container matColumnDef="action">
+        <th class="mat-header" mat-header-cell *matHeaderCellDef>Ações</th>
+        <td mat-cell *matCellDef="let element">
+<!-- 
+          <button (click)="removeItem(element)" class="full-width" [disabled]="!form.form.valid" >
+            <mat-icon>remove</mat-icon>
+
+        </button> -->
+          
+        </td>
+      </ng-container>
+
+    </table>
+    
+
+      </mat-card-content>
+    </mat-card>
+
+
+
     <!-- <mat-form-field class="form" appearance="outline">
       <mat-label>Telephone</mat-label>
       <input matInput [(ngModel)]="venda.telephone" type="text" name="telephone">
@@ -44,9 +96,74 @@
       <input matInput [(ngModel)]="venda.password" type="text" name="password">
     </mat-form-field> -->
   
+    <!-- <mat-table class="mat-mdc-table mat-table" [dataSource]="itemsVenda">
+
+      <ng-container matColumnDef="customer">
+        <mat-header-cell *matHeaderCellDef> cliente </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.product.customer }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="product">
+        <mat-header-cell *matHeaderCellDef> Produto </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.product.name }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <mat-header-cell *matHeaderCellDef>
+          Quantidade
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.amount }}
+        </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="discount">
+        <mat-header-cell *matHeaderCellDef>
+          Desconto
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.discount | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
+        </mat-cell>
+      </ng-container>
+
+      
+
+      <mat-header-row
+        *matHeaderRowDef="ordemColunasTabela"
+      ></mat-header-row>
+      <mat-row
+        *matRowDef="let row; columns: ordemColunasTabela"
+      ></mat-row>
+    </mat-table> -->
+
     <div class="buttons">
-      <button (click)="create()" mat-stroked-button color="primary">Criar</button>
+      <button [disabled]="items.length === 0" (click)="create()" mat-stroked-button color="primary">Criar</button>
       <button (click)="cancel()" mat-stroked-button color="warn">Cancelar</button>
     </div>
   </form>
+
+  
+  <!-- <div class="product-table">
+    <h3>Produtos Adicionados</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of itemsVenda">
+          <td>{{ product.amount }}</td>
+          <td>{{ product.discount | currency:'BRL' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+  
   
