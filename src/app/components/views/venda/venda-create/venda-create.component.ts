@@ -22,15 +22,16 @@ import localePtExtra from '@angular/common/locales/extra/pt';
 import { AddItem } from './addItem.model';
 import { AddProduct } from './addProduct';
 import { MatCardModule } from '@angular/material/card';
+import { AddCustomer } from './AddCustomer';
 
 export interface ClienteModel {
   id?: number;
-  name?: string
+  name?: string;
 }
 
 export interface ProdutoModel {
   id?: number;
-  name?: string
+  name?: string;
 }
 
 // interface ItemSale {
@@ -58,18 +59,12 @@ registerLocaleData(localePt, 'pt-BR', localePtExtra);
     CommonModule,
     MatCardModule,
   ],
-  providers: [
-    { provide: LOCALE_ID, useValue: 'pt-BR' }
-  ],
+  providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
   templateUrl: './venda-create.component.html',
   styleUrl: './venda-create.component.scss',
 })
 export class VendaCreateComponent {
-
-
   ordemColunasTabela = ['product', 'amount', 'discount', 'action'];
-
- 
 
   produto: Produto = {
     id: 0,
@@ -92,12 +87,12 @@ export class VendaCreateComponent {
 
   clienteVenda: ClienteModel = {
     id: 0,
-    name: ''
+    name: '',
   };
 
   produtoModel: ProdutoModel = {
     id: 0,
-    name: ''
+    name: '',
   };
 
   itemVenda: ItemVenda = {
@@ -109,7 +104,7 @@ export class VendaCreateComponent {
 
   itemsVenda: ItemVenda[] = [];
 
-  items: AddItem[] = []
+  items: AddItem[] = [];
 
   dataSource = new MatTableDataSource(this.items);
 
@@ -117,8 +112,6 @@ export class VendaCreateComponent {
     customer: this.clienteVenda,
     itemsSale: this.items,
   };
-
-  
 
   clientes: Cliente[] = [];
 
@@ -151,26 +144,29 @@ export class VendaCreateComponent {
     });
   }
 
-  adicionarItem(){
+  adicionarItem() {
+    const customer = new AddCustomer(this.clienteVenda.id!);
 
     const product = new AddProduct(
       this.produtoModel.id!,
-    )
+      this.produtoModel.name!
+    );
 
-    const item = new AddItem (
-     product,
-     this.itemVenda.amount,
-     this.itemVenda.discount
-     )
+    const item = new AddItem(
+      product,
+      this.itemVenda.amount,
+      this.itemVenda.discount
+    );
 
-     this.venda.itemsSale.push(item)
-     this.dataSource.data = [...this.items]; 
-    
+    this.venda.customer = customer;
+    this.venda.itemsSale.push(item);
+    this.dataSource.data = [...this.items];
+  }
 
-    // this.itemVenda.product = this.produtoModel;
-    // this.venda.customer = this.clienteVenda;
-    // this.venda.itemsSale.push(this.itemVenda);
-
+  removeItem(id: number) {
+    this.items = this.items.filter((item) => item.product.id !== id);
+    this.venda.itemsSale = this.items;
+    this.dataSource.data = [...this.items];
   }
 
   // removeItem(itemVenda: ItemVenda){
@@ -182,7 +178,6 @@ export class VendaCreateComponent {
   // }
 
   create(): void {
-
     this.service.create(this.venda).subscribe(
       (response) => {
         this.router.navigate(['vendas']);

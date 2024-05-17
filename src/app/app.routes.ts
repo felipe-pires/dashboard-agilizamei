@@ -21,7 +21,7 @@ import { VendaUpdateComponent } from './components/views/venda/venda-update/vend
 
 export const routes: Routes = [
     {
-        path: "login",
+        path: "",
         component: LoginComponent
     },
     {

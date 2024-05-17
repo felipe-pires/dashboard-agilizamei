@@ -45,7 +45,7 @@ export class LoginService {
     localStorage.clear();
     sessionStorage.clear();
     this.mensagem('Sessão encerrada');
-    this.router.navigate(['/login']);
+    this.router.navigate(['']);
   }
 
   isUserLoggedIn() {
@@ -53,7 +53,7 @@ export class LoginService {
   }
 
   isLogin() {
-    if (this.router.url == '/login') {
+    if (this.router.url == '/') {
       return false;
     } else {
       return true;
