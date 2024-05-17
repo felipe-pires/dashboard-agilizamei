@@ -28,6 +28,7 @@ export type ChartOptions = {
   chart: ApexChart;
   labels: any;
   responsive: ApexResponsive[];
+  colors: any;
 };
 
 // export type ChartOptions = {
@@ -65,6 +66,7 @@ export class TotalGainsAndCostsComponent {
 
       const custos = response.totalCosts.toFixed(2);
       this.chartOptions = {
+      
         series: [Number(ganhos), Number(custos)],
         chart: {
           type: 'donut',
@@ -83,6 +85,7 @@ export class TotalGainsAndCostsComponent {
             },
           },
         ],
+        colors: ['#8DECB4','#EE4E4E']
       };
     });
   }
