@@ -62,7 +62,7 @@ export class SaleByMonthComponent {
       this.chartOptions = {
         series: [
           {
-            color: '#65C6D5',
+            color: '#008FFB',
             name: 'Vendas',
             data: resposta.map((item) => item.total), // Supondo que 'valor' seja o campo que você quer usar no gráfico
           },
