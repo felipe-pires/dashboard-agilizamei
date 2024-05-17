@@ -5,7 +5,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { HeaderComponent } from '../../template/header/header.component';
 import { NavComponent } from '../../template/nav/nav.component';
 import { RouterOutlet } from '@angular/router';
-import { TableComponent } from '../../charts/produto-charts/table/table.component';
 import { SaleByDateComponent } from '../../charts/sale-by-date/sale-by-date.component';
 import { ChartsService } from '../../../services/charts/charts.service';
 import { format } from 'date-fns-tz';
@@ -26,7 +25,6 @@ registerLocaleData(localePt, 'pt-BR', localePtExtra);
     HeaderComponent,
     NavComponent,
     RouterOutlet,
-    TableComponent,
     SaleByDateComponent,
     CommonModule
   ],

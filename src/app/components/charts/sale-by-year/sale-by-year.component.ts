@@ -1,7 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { ChartsService } from '../../../services/charts/charts.service';
 import { subDays } from 'date-fns';
-import { TotalByDate } from '../../../types/sale-date.type';
 
 import {
   ApexAxisChartSeries,
@@ -15,6 +13,8 @@ import {
   ApexFill,
   NgApexchartsModule,
 } from 'ng-apexcharts';
+import { ChartsService } from '../../../services/charts/charts.service';
+import { TotalByDate } from '../../../types/sale-date.type';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -28,14 +28,17 @@ export type ChartOptions = {
   title: ApexTitleSubtitle;
 };
 
+
 @Component({
-  selector: 'app-sale-by-date',
+  selector: 'app-sale-by-year',
   standalone: true,
-  imports: [NgApexchartsModule],
-  templateUrl: './sale-by-date.component.html',
-  styleUrl: './sale-by-date.component.scss',
+  imports: [
+    NgApexchartsModule
+  ],
+  templateUrl: './sale-by-year.component.html',
+  styleUrl: './sale-by-year.component.scss'
 })
-export class SaleByDateComponent {
+export class SaleByYearComponent {
   @ViewChild('chart') chart!: ChartComponent;
   public chartOptions: Partial<ChartOptions> = {};
 
@@ -52,7 +55,7 @@ export class SaleByDateComponent {
     const endDate = this.end = new Date();
     const startDate = subDays(this.end, 7);
     
-    this.service.salesByDate(startDate, endDate).subscribe((resposta) => {
+    this.service.salesByYear(startDate, endDate).subscribe((resposta) => {
       this.chartOptions = {
         series: [
           {

@@ -1,7 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { ChartsService } from '../../../services/charts/charts.service';
 import { subDays } from 'date-fns';
+import { ChartsService } from '../../../services/charts/charts.service';
 import { TotalByDate } from '../../../types/sale-date.type';
+
 
 import {
   ApexAxisChartSeries,
@@ -28,14 +29,19 @@ export type ChartOptions = {
   title: ApexTitleSubtitle;
 };
 
+
 @Component({
-  selector: 'app-sale-by-date',
+  selector: 'app-sale-by-month',
   standalone: true,
-  imports: [NgApexchartsModule],
-  templateUrl: './sale-by-date.component.html',
-  styleUrl: './sale-by-date.component.scss',
+  imports: [
+    NgApexchartsModule
+  ],
+  templateUrl: './sale-by-month.component.html',
+  styleUrl: './sale-by-month.component.scss'
 })
-export class SaleByDateComponent {
+
+export class SaleByMonthComponent {
+
   @ViewChild('chart') chart!: ChartComponent;
   public chartOptions: Partial<ChartOptions> = {};
 
@@ -52,7 +58,7 @@ export class SaleByDateComponent {
     const endDate = this.end = new Date();
     const startDate = subDays(this.end, 7);
     
-    this.service.salesByDate(startDate, endDate).subscribe((resposta) => {
+    this.service.salesByMonth(startDate, endDate).subscribe((resposta) => {
       this.chartOptions = {
         series: [
           {
@@ -86,3 +92,4 @@ export class SaleByDateComponent {
     });
   }
 }
+

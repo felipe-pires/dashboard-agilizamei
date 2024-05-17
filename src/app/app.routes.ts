@@ -18,6 +18,7 @@ import { VendaReadComponent } from './components/views/venda/venda-read/venda-re
 import { VendaCreateComponent } from './components/views/venda/venda-create/venda-create.component';
 import { VendaDeleteComponent } from './components/views/venda/venda-delete/venda-delete.component';
 import { VendaUpdateComponent } from './components/views/venda/venda-update/venda-update.component';
+import { ReportComponent } from './components/views/reports/report/report.component';
 
 export const routes: Routes = [
     {
@@ -107,6 +108,11 @@ export const routes: Routes = [
     {
         path: "vendas/update/:id",
         component: VendaUpdateComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: "relatorios",
+        component: ReportComponent,
         canActivate: [AuthGuard]
     }
 ];
