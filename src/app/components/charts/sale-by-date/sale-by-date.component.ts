@@ -15,6 +15,7 @@ import {
   ApexFill,
   NgApexchartsModule,
 } from 'ng-apexcharts';
+import { OrderByPipe } from '../OrderPipe';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -32,6 +33,7 @@ export type ChartOptions = {
   selector: 'app-sale-by-date',
   standalone: true,
   imports: [NgApexchartsModule],
+  providers: [OrderByPipe],
   templateUrl: './sale-by-date.component.html',
   styleUrl: './sale-by-date.component.scss',
 })
@@ -49,23 +51,23 @@ export class SaleByDateComponent {
   }
 
   salesByDate() {
-    const endDate = this.end = new Date();
-    const startDate = subDays(this.end, 30);
-    
+    const endDate = new Date();
+    const startDate = subDays(endDate, 30);
+
     this.service.salesByDate(startDate, endDate).subscribe((resposta) => {
-      
-      resposta.sort();
-
-      const dates = Array.from(new Set(resposta.map(item => item.date))).sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
-
-      console.log(resposta)
-
+  
+      resposta.sort((a, b) => {
+        const dateA = new Date(a.date.split('-').reverse().join('-'));
+        const dateB = new Date(b.date.split('-').reverse().join('-'));
+        return dateA.getTime() - dateB.getTime();
+      });
+     
       this.chartOptions = {
         series: [
           {
             color: '#008FFB',
             name: 'Vendas',
-            data: resposta.map((item) => item.total), // Supondo que 'valor' seja o campo que você quer usar no gráfico
+            data: resposta.map((item) => item.total),
           },
         ],
         chart: {
@@ -73,8 +75,7 @@ export class SaleByDateComponent {
           height: 350,
         },
         xaxis: {
-          categories: dates,
-
+          categories: resposta.map((m) => m.date),
           crosshairs: {
             fill: {
               type: 'gradient',

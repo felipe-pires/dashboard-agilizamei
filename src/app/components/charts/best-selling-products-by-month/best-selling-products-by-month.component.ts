@@ -57,7 +57,14 @@ export class BestSellingProductsByMonthComponent {
       .bestSellingProductsByMonth(startDate, endDate)
       .subscribe((response) => {
         const productNames = Array.from(new Set(response.map(item => item.name)));
-        const dates = Array.from(new Set(response.map(item => item.date))).sort();
+        const dates = Array.from(
+          new Set(response.map((item) => item.date))
+        ).sort((a, b) => {
+          const dateA = new Date(a.split('-').reverse().join('-'));
+          const dateB = new Date(b.split('-').reverse().join('-'));
+          return dateA.getTime() - dateB.getTime();
+        });
+
         
         const seriesData = productNames.map(name => ({
           name,

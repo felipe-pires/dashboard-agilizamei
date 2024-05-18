@@ -36,7 +36,7 @@ export type ChartOptions = {
   standalone: true,
   imports: [NgApexchartsModule],
   templateUrl: './best-selling-products-by-year.component.html',
-  styleUrl: './best-selling-products-by-year.component.scss'
+  styleUrl: './best-selling-products-by-year.component.scss',
 })
 export class BestSellingProductsByYearComponent {
   @ViewChild('chart') chart!: ChartComponent;
@@ -56,15 +56,25 @@ export class BestSellingProductsByYearComponent {
     this.service
       .bestSellingProductsByYear(startDate, endDate)
       .subscribe((response) => {
-        const productNames = Array.from(new Set(response.map(item => item.name)));
-        const dates = Array.from(new Set(response.map(item => item.date))).sort();
-        
-        const seriesData = productNames.map(name => ({
+        const productNames = Array.from(
+          new Set(response.map((item) => item.name))
+        );
+        const dates = Array.from(
+          new Set(response.map((item) => item.date))
+        ).sort((a, b) => {
+          const dateA = new Date(a.split('-').reverse().join('-'));
+          const dateB = new Date(b.split('-').reverse().join('-'));
+          return dateA.getTime() - dateB.getTime();
+        });
+
+        const seriesData = productNames.map((name) => ({
           name,
-          data: dates.map(date => {
-            const productData = response.find(item => item.name === name && item.date === date);
+          data: dates.map((date) => {
+            const productData = response.find(
+              (item) => item.name === name && item.date === date
+            );
             return productData ? productData.total : 0;
-          })
+          }),
         }));
 
         this.chartOptions = {
