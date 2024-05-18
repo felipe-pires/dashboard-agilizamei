@@ -53,6 +53,9 @@ export class SaleByDateComponent {
     const startDate = subDays(this.end, 30);
     
     this.service.salesByDate(startDate, endDate).subscribe((resposta) => {
+      
+      resposta.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+
       this.chartOptions = {
         series: [
           {

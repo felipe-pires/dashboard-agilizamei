@@ -59,6 +59,8 @@ export class SaleByMonthComponent {
     const startDate = subMonths(this.end, 12);
     
     this.service.salesByMonth(startDate, endDate).subscribe((resposta) => {
+
+      resposta.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
       this.chartOptions = {
         series: [
           {

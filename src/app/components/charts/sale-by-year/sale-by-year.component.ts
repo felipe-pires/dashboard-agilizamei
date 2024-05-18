@@ -56,6 +56,8 @@ export class SaleByYearComponent {
     const startDate = subYears(this.end, 10);
     
     this.service.salesByYear(startDate, endDate).subscribe((resposta) => {
+
+      resposta.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
       this.chartOptions = {
         series: [
           {
