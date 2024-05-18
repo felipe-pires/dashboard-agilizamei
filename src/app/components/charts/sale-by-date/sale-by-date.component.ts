@@ -15,7 +15,7 @@ import {
   ApexFill,
   NgApexchartsModule,
 } from 'ng-apexcharts';
-import { OrderByPipe } from '../OrderPipe';
+
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -33,7 +33,6 @@ export type ChartOptions = {
   selector: 'app-sale-by-date',
   standalone: true,
   imports: [NgApexchartsModule],
-  providers: [OrderByPipe],
   templateUrl: './sale-by-date.component.html',
   styleUrl: './sale-by-date.component.scss',
 })
