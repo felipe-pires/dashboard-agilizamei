@@ -54,7 +54,11 @@ export class SaleByDateComponent {
     
     this.service.salesByDate(startDate, endDate).subscribe((resposta) => {
       
-      resposta.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+      resposta.sort();
+
+      const dates = Array.from(new Set(resposta.map(item => item.date))).sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
+
+      console.log(resposta)
 
       this.chartOptions = {
         series: [
@@ -69,7 +73,7 @@ export class SaleByDateComponent {
           height: 350,
         },
         xaxis: {
-          categories: resposta.map((item) => item.date),
+          categories: dates,
 
           crosshairs: {
             fill: {
