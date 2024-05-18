@@ -152,7 +152,7 @@ export class VendaReadComponent {
         this.dataSource = new MatTableDataSource(this.periodic);
       },
       (err) => {
-        this.service.mensagem('Erro ao buscar lista de clientes');
+        this.service.mensagem('Erro ao buscar lista de vendas');
       }
     );
   }
