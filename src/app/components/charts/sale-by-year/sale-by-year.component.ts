@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { subDays } from 'date-fns';
+import { subDays, subYears } from 'date-fns';
 
 import {
   ApexAxisChartSeries,
@@ -53,7 +53,7 @@ export class SaleByYearComponent {
 
   salesByDate() {
     const endDate = this.end = new Date();
-    const startDate = subDays(this.end, 7);
+    const startDate = subYears(this.end, 10);
     
     this.service.salesByYear(startDate, endDate).subscribe((resposta) => {
       this.chartOptions = {

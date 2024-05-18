@@ -15,7 +15,7 @@ import {
   ApexLegend,
 } from 'ng-apexcharts';
 import { ChartsService } from '../../../services/charts/charts.service';
-import { subDays } from 'date-fns';
+import { subDays, subMonths } from 'date-fns';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -43,7 +43,7 @@ export class BestSellingProductsByMonthComponent {
   public chartOptions: Partial<ChartOptions> = {};
 
   end: Date = new Date();
-  start: Date = subDays(this.end, 7);
+  start: Date = subMonths(this.end, 12);
 
   constructor(private service: ChartsService) {
     this.salesByDate();

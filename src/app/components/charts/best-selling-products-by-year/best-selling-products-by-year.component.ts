@@ -15,7 +15,7 @@ import {
   ApexLegend,
 } from 'ng-apexcharts';
 import { ChartsService } from '../../../services/charts/charts.service';
-import { subDays } from 'date-fns';
+import { subDays, subYears } from 'date-fns';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -51,7 +51,7 @@ export class BestSellingProductsByYearComponent {
 
   salesByDate() {
     const endDate = new Date();
-    const startDate = subDays(endDate, 30);
+    const startDate = subYears(endDate, 10);
 
     this.service
       .bestSellingProductsByYear(startDate, endDate)

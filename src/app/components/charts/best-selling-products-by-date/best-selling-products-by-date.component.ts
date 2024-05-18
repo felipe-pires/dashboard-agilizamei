@@ -43,7 +43,7 @@ export class BestSellingProductsByDateComponent {
   public chartOptions: Partial<ChartOptions> = {};
 
   end: Date = new Date();
-  start: Date = subDays(this.end, 7);
+  start: Date = subDays(this.end, 30);
 
   constructor(private service: ChartsService) {
     this.salesByDate();

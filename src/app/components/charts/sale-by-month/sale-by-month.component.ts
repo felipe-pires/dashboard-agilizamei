@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { subDays } from 'date-fns';
+import { subDays, subMonths } from 'date-fns';
 import { ChartsService } from '../../../services/charts/charts.service';
 import { TotalByDate } from '../../../types/sale-date.type';
 
@@ -56,7 +56,7 @@ export class SaleByMonthComponent {
 
   salesByDate() {
     const endDate = this.end = new Date();
-    const startDate = subDays(this.end, 7);
+    const startDate = subMonths(this.end, 12);
     
     this.service.salesByMonth(startDate, endDate).subscribe((resposta) => {
       this.chartOptions = {

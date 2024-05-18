@@ -50,7 +50,7 @@ export class SaleByDateComponent {
 
   salesByDate() {
     const endDate = this.end = new Date();
-    const startDate = subDays(this.end, 7);
+    const startDate = subDays(this.end, 30);
     
     this.service.salesByDate(startDate, endDate).subscribe((resposta) => {
       this.chartOptions = {
