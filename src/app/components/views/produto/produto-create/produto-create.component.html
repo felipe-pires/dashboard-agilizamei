@@ -6,13 +6,14 @@
   </mat-form-field>
 
   <mat-form-field class="form" appearance="outline" re>
-    <mat-label>Preço de Venda</mat-label>
+    <mat-label>Preço de Venda/Compra</mat-label>
     <input matInput [(ngModel)]="produto.price" required type="number" name="price">
   </mat-form-field>
 
-  <mat-form-field class="form" appearance="outline">
-    <mat-label>Preço de Custo</mat-label>
+  <mat-form-field  class="form" appearance="outline">
+    <mat-label >Preço de Custo</mat-label>
     <input matInput [(ngModel)]="produto.cost" type="number" name="cost">
+    <mat-hint>Alterar somente se o produto for para venda</mat-hint>
   </mat-form-field>
  
   <mat-form-field class="form" appearance="outline">
