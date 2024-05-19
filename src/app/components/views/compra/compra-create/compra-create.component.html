@@ -1,1 +1,122 @@
-<p>compra-create works!</p>
+<form #form="ngForm">
+    <h1>Criar Nova Compra</h1>  
+
+    <h2>Adicione o Usuario: </h2>
+    <mat-form-field class="form" appearance="outline">
+      
+        <mat-label>Usuario</mat-label>
+        <mat-select required [(ngModel)]="usuarioModel" name="user">
+          @for (usuario of usuarios; track usuario) {
+            <mat-option [value]="usuario">Nome: {{usuario.name}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+    <h2>Adicione o Fornecedor: </h2>
+    <mat-form-field class="form" appearance="outline">
+      
+        <mat-label>Fornecedor</mat-label>
+        <mat-select required [(ngModel)]="fornecedorModel" name="supplier">
+          @for (fornecedor of fornecedores; track fornecedor) {
+            <mat-option [value]="fornecedor">Nome: {{fornecedor.name}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+
+
+    <mat-card>
+      <mat-card-content>
+        <h2>Adicione os produtos: </h2>
+      <mat-form-field class="form" appearance="outline">
+     
+        <mat-label>Produto</mat-label>
+        <mat-select required [(ngModel)]="produtoModel" name="product">
+          @for (produto of produtos; track produto) {
+            <mat-option [value]="produto"> {{ produto.name }} </mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+
+      <mat-form-field class="form" appearance="outline">
+        <mat-label>Quantidade</mat-label>
+        <input required matInput [(ngModel)]="itemVenda.amount" type="number" name="amount">
+      </mat-form-field>
+
+      <mat-form-field class="form" appearance="outline">
+        <mat-label>Desconto</mat-label>
+        <input required matInput [(ngModel)]="itemVenda.discount" type="number" name="discount">
+      </mat-form-field>
+
+      <button class="full-width" (click)="adicionarItem()" [disabled]="!form.form.valid" mat-stroked-button color="primary">
+        <mat-icon>add</mat-icon>
+        Incluir Produto
+    </button>
+
+
+    <h2>items incluidos:</h2>
+    <table mat-table [dataSource]="dataSource">
+      <!-- Nome da coluna -->
+      <ng-container matColumnDef="product">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let element"> {{element.product.name}} </td>
+      </ng-container>
+    
+      <!-- Quantidade da coluna -->
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef> Quantidade </th>
+        <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="discount">
+        <th mat-header-cell *matHeaderCellDef> Desconto </th>
+        <td mat-cell *matCellDef="let element"> {{element.discount}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="ordemColunasTabela"></tr>
+      <tr mat-row *matRowDef="let row; columns: ordemColunasTabela;"></tr>
+
+      <ng-container matColumnDef="action">
+        <th class="mat-header" mat-header-cell *matHeaderCellDef>Ações</th>
+        <td mat-cell *matCellDef="let element">
+          <button class="remove" (click)="removeItem(element.product.id)" mat-stroked-button color="warn" [disabled]="!form.form.valid" >
+            <mat-icon>remove</mat-icon> remover
+
+        </button> 
+          
+        </td>
+      </ng-container>
+
+    </table>
+    
+
+      </mat-card-content>
+    </mat-card>
+
+    <div class="buttons">
+      <button [disabled]="items.length === 0" (click)="create()" mat-stroked-button color="primary">Criar</button>
+      <button (click)="cancel()" mat-stroked-button color="warn">Cancelar</button>
+    </div>
+  </form>
+
+  
+  <!-- <div class="product-table">
+    <h3>Produtos Adicionados</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of itemsVenda">
+          <td>{{ product.amount }}</td>
+          <td>{{ product.discount | currency:'BRL' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+  
+  

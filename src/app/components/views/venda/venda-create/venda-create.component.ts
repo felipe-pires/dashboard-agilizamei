@@ -139,7 +139,7 @@ export class VendaCreateComponent {
   }
 
   findAllProducts() {
-    this.productService.findAll().subscribe((produtos) => {
+    this.productService.findAllByTypeProductForSale().subscribe((produtos) => {
       this.produtos = produtos;
     });
   }

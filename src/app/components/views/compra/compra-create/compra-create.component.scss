@@ -1,0 +1,53 @@
+form {
+    text-align: center;
+    width: 70%;
+    margin: 2rem auto 0 auto;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 3rem;
+  }
+  
+  .form {
+    width: 100%;
+    margin: 1rem;
+  }
+  
+  h2 {
+    margin: 2rem;
+  }
+  
+  .buttons {
+    width: 100%;
+    margin: 1rem;
+    text-align: center;
+  
+    button {
+      margin-top: 2rem;
+      margin-right: 1.5rem;
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
+  }
+  
+  mat-card {
+    width: 100%;
+    margin: 2rem auto 0 auto;
+  }
+  
+  .remove {
+    width: auto;
+  }
+  
+  mat-card-content {
+    justify-content: center;
+    align-items: center;
+  
+    .form {
+      width: 90%;
+      margin: 1rem;
+    }
+  }
+  

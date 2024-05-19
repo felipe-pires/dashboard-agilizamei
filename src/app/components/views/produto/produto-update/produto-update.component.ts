@@ -7,6 +7,7 @@ import { ProdutoService } from '../../../../services/produto/produto.service';
 import { Produto } from '../produto-read/produto.model';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-produto-update',
@@ -17,12 +18,19 @@ import { ActivatedRoute, Router } from '@angular/router';
     MatFormFieldModule,
     MatButtonModule,
     MatSnackBarModule,
+    MatSelectModule
   ],
   providers: [ProdutoService],
   templateUrl: './produto-update.component.html',
   styleUrl: './produto-update.component.scss',
 })
 export class ProdutoUpdateComponent {
+
+  tipos: any[] = [
+    {value: 'PRODUTO_PARA_VENDA', viewValue: 'Produto para venda'},
+    {value: 'MATERIA_PRIMA', viewValue: 'insumo de trabalho'}
+  ];
+
   produto: Produto = {
     name: '',
     description: '',

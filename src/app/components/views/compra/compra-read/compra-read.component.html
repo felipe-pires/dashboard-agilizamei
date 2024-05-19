@@ -22,7 +22,7 @@
         <td mat-cell *matCellDef="let element">{{ element.total | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</td>
       </ng-container>
       <ng-container matColumnDef="supplierName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome Cliente</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome Fornecedor</th>
         <td mat-cell *matCellDef="let element">{{ element.supplier.name }}</td>
       </ng-container>
       <ng-container matColumnDef="username">

@@ -19,7 +19,7 @@ export class CompraService {
     return this.http.get<Compra[]>(url);
   }
 
-  create(compra: CompraCreate): Observable<CompraCreate> {
+  create(compra: any): Observable<CompraCreate> {
     const url = `${this.baseUrl}/purchase`;
     return this.http.post<CompraCreate>(url, compra);
   }

@@ -7,6 +7,7 @@ import { ProdutoService } from '../../../../services/produto/produto.service';
 import { Produto } from '../produto-read/produto.model';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-produto-create',
@@ -16,7 +17,8 @@ import { Router } from '@angular/router';
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSelectModule
   ],
   providers: [
     ProdutoService
@@ -25,6 +27,11 @@ import { Router } from '@angular/router';
   styleUrl: './produto-create.component.scss'
 })
 export class ProdutoCreateComponent {
+
+  tipos: any[] = [
+    {value: 'PRODUTO_PARA_VENDA', viewValue: 'Produto para venda'},
+    {value: 'MATERIA_PRIMA', viewValue: 'insumo de trabalho'}
+  ];
 
   produto: Produto = {
     name: '',

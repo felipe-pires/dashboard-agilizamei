@@ -26,9 +26,14 @@
   </mat-form-field>
 
   <mat-form-field class="form" appearance="outline">
-    <mat-label>Tipo</mat-label>
-    <input required matInput [(ngModel)]="produto.typeProduct" type="text" name="typeProduct">
+    <mat-label>Finalidade do Produto</mat-label>
+    <mat-select required [(ngModel)]="produto.typeProduct" name="typeProduct">
+      @for (tipo of tipos; track tipo) {
+        <mat-option [value]="tipo.value">{{tipo.viewValue}}</mat-option>
+      }
+    </mat-select>
   </mat-form-field>
+
 
   <mat-form-field class="form" appearance="outline">
     <mat-label>Descrição</mat-label>

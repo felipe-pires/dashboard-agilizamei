@@ -27,6 +27,16 @@ export class ProdutoService {
     return this.http.get<Produto[]>(url, {headers: this.headers});
   }
 
+  findAllByTypeProductForSale(): Observable<Produto[]> {
+    const url = `${this.baseUrl}/product/product-for-sale`;
+    return this.http.get<Produto[]>(url, {headers: this.headers});
+  }
+
+  findAllByTypeFeedstock(): Observable<Produto[]> {
+    const url = `${this.baseUrl}/product/feedstock`;
+    return this.http.get<Produto[]>(url, {headers: this.headers});
+  }
+
   findByName(name: string): Observable<Produto> {
     const url = `${this.baseUrl}/product/name?${name}`;
     return this.http.get<Produto>(url, {headers: this.headers});
