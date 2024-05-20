@@ -48,7 +48,7 @@ export class NavComponent {
   }
 
   getContentClass() {
-    return this.router.url.includes('/login')
+    return this.router.url.includes('/')
       ? 'content-login'
       : 'content-default';
   }

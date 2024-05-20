@@ -1,4 +1,4 @@
-<div class="menu-button">
+<div class="menu-button" *ngIf="isLogin()">
 <button mat-icon-button  class="button-icon" (click)="toggleDrawer()">
   <mat-icon>menu</mat-icon>
 </button>
