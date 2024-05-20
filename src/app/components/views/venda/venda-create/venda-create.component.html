@@ -22,7 +22,7 @@
         <mat-label>Produto</mat-label>
         <mat-select required [(ngModel)]="produtoModel" name="product">
           @for (produto of produtos; track produto) {
-            <mat-option [value]="produto"> {{ produto.name }} </mat-option>
+            <mat-option [value]="produto"> {{ produto.name }} / Quantidade disponivel: {{produto.amount}} </mat-option>
           }
         </mat-select>
       </mat-form-field>
