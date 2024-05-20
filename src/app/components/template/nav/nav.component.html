@@ -9,42 +9,42 @@
   <mat-drawer #drawer *ngIf="isLogin()" class="menu" mode="side">
     <mat-list class="list">
       <mat-list-item
-        ><a routerLink="/home" routerLinkActive="router-link-active"
+        ><a routerLink="/home" routerLinkActive="router-link-active" (click)="close()"
           ><i class="material-icons">home</i>home</a
         ></mat-list-item
       >
       <mat-list-item
-        ><a routerLink="/produtos" routerLinkActive="router-link-active"
+        ><a routerLink="/produtos" routerLinkActive="router-link-active" (click)="close()"
           ><i class="material-icons">list</i>Produtos</a
         ></mat-list-item
       >
-      <mat-list-item
-        ><a routerLink="/clientes" routerLinkActive="router-link-active"
+      <mat-list-item 
+        ><a routerLink="/clientes" routerLinkActive="router-link-active" (click)="close()"
           ><i class="material-icons">person</i>Clientes</a
         ></mat-list-item
       >
       <mat-list-item
-        ><a routerLink="/vendas" routerLinkActive="router-link-active"
+        ><a routerLink="/vendas" routerLinkActive="router-link-active" (click)="close()"
           ><i class="material-icons">local_offer</i>Vendas</a
         ></mat-list-item
       >
       <mat-list-item
-        ><a routerLink="/compras" routerLinkActive="router-link-active"
+        ><a routerLink="/compras" routerLinkActive="router-link-active" (click)="close()"
           ><i class="material-icons">add_shopping_cart</i>Compras</a
         ></mat-list-item
       >
       <mat-list-item
-        ><a routerLink="/fornecedores" routerLinkActive="router-link-active"
+        ><a routerLink="/fornecedores" routerLinkActive="router-link-active" (click)="close()"
           ><i class="material-icons">business</i>Fornecedores</a
         ></mat-list-item
       >
       <mat-list-item
-        ><a routerLink="/relatorios" routerLinkActive="router-link-active"
+        ><a routerLink="/relatorios" routerLinkActive="router-link-active" (click)="close()"
           ><i class="material-icons">insert_chart</i>Relatorios</a
         ></mat-list-item
       >
       <mat-list-item
-        ><a routerLink="/usuarios" routerLinkActive="router-link-active"
+        ><a routerLink="/usuarios" routerLinkActive="router-link-active" (click)="close()"
           ><i class="material-icons">person</i>Usuarios</a
         ></mat-list-item
       >

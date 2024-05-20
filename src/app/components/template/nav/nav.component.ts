@@ -39,6 +39,13 @@ export class NavComponent {
       this.drawer.toggle();
     }
   }
+
+  close(): void {
+    if (this.drawer) {
+      this.drawer.close();
+    }
+  }
+
   isLogin() {
     return this.service.isLogin();
   }
