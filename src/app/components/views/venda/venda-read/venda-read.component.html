@@ -3,6 +3,10 @@
     <h1>Vendas</h1>
   </div>
   <button (click)="criarVendaComponent()" mat-stroked-button color="primary">Nova Venda</button>
+  <!-- <mat-form-field class="mat-mdc-form-field">
+    <mat-label>Filter</mat-label>
+    <input (keyup)="applyFilter($event)" matInput placeholder="Ex." #input />
+  </mat-form-field> -->
   <table
     mat-table
     [dataSource]="dataSource"
