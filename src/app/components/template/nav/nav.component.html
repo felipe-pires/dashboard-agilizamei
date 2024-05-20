@@ -4,7 +4,7 @@
 </button>
 </div>
 <mat-drawer-container [ngClass]="getContentClass()">
-  <mat-drawer #drawer *ngIf="isLogin()" class="menu" mode="side" opened>
+  <mat-drawer #drawer *ngIf="isLogin()" class="menu" mode="side">
     <mat-list class="list">
       <mat-list-item
         ><a routerLink="/home" routerLinkActive="router-link-active"
