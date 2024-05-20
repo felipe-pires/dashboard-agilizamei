@@ -3,7 +3,9 @@
   <mat-icon>menu</mat-icon>
 </button>
 </div>
+
 <mat-drawer-container [ngClass]="getContentClass()">
+  
   <mat-drawer #drawer *ngIf="isLogin()" class="menu" mode="side">
     <mat-list class="list">
       <mat-list-item
@@ -53,7 +55,13 @@
       >
     </mat-list>
   </mat-drawer>
-  <mat-drawer-content>
+  <mat-drawer-content >
+    <div class="hidden" *ngIf="isLogin()">
+      <button mat-icon-button  class="button-icon" (click)="toggleDrawer()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+    
     <router-outlet />
   </mat-drawer-content>
 </mat-drawer-container>

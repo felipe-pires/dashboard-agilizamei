@@ -11,7 +11,6 @@
   background-color: #67c7aa;
   color: white;
   border-top: 1px solid white;
-
 }
 
 
@@ -19,7 +18,6 @@
   background-color: #67c7aa;
   color: white;
   height: 50px;
-  height: auto;
   
 }
 
@@ -54,4 +52,42 @@ mat-list-item:hover {
 
 mat-drawer-content {
   background-color: white;
+} 
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .menu-button {
+    color: black;
+    display: none;
+    //background-color: white;
+  }
+
+  .menu {
+    background-color: white;
+    color: black;
+
+    .list {
+      color: black;
+    }
+    
+    .item {
+      color: black;
+    }
+
+    a {
+      color: black;
+     
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+  }
+
+  .hidden {
+
+    display: block;
+  }
+  
 }
