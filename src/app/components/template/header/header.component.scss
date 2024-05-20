@@ -9,13 +9,12 @@ img {
 .header {
   justify-content: center;
   align-items: center;
-  height: 10%;
+  height: 50px;
   background-color: #67c7aa;
   padding: 1rem;
   button{
    color: white;
   }
-  border-bottom: 1px solid white;
 }
 
 span {
@@ -35,8 +34,10 @@ div{
    
 
   &.container-logo{
+    padding-top: 2rem;
     align-items: center;
     justify-content: right;
+   
   }
 
   &.container-titulo{
