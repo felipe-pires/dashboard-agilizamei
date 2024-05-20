@@ -15,8 +15,8 @@
       <table mat-table [dataSource]="dataSource" class="table">
   
         <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef>#</th>
-          <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+          <th class="hide-800" mat-header-cell *matHeaderCellDef>#</th>
+          <td class="hide-800" mat-cell *matCellDef="let row">{{ row.id }}</td>
         </ng-container>
   
         <ng-container matColumnDef="name">
@@ -25,8 +25,8 @@
         </ng-container>
   
         <ng-container matColumnDef="email">
-          <th mat-header-cell *matHeaderCellDef>Email</th>
-          <td mat-cell *matCellDef="let row">{{ row.email }}</td>
+          <th class="hide-800" mat-header-cell *matHeaderCellDef>Email</th>
+          <td class="hide-800" mat-cell *matCellDef="let row">{{ row.email }}</td>
         </ng-container>
   
         <ng-container matColumnDef="telephone">
@@ -35,8 +35,8 @@
         </ng-container>
   
         <ng-container matColumnDef="password">
-          <th mat-header-cell *matHeaderCellDef>Senha</th>
-          <td mat-cell *matCellDef="let row">{{ row.password }}</td>
+          <th class="hide-800" mat-header-cell *matHeaderCellDef>Senha</th>
+          <td class="hide-800" mat-cell *matCellDef="let row">{{ row.password }}</td>
         </ng-container>
   
         <ng-container matColumnDef="action">

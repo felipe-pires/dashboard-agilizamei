@@ -7,11 +7,14 @@
     <mat-label>Filter</mat-label>
     <input (keyup)="applyFilter($event)" matInput placeholder="Ex." #input />
   </mat-form-field> -->
+  <div class="mat-elevation-z8">
+
+
   <table
     mat-table
     [dataSource]="dataSource"
     multiTemplateDataRows
-    class="mat-elevation-z8"
+    
   >
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>#</th>
@@ -156,4 +159,5 @@
       class="example-detail-row"
     ></tr>
   </table>
+</div>
 </div>

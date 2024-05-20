@@ -1,39 +1,45 @@
-.content{
-    width: 90%;
-    margin: 1.4rem auto;
+.content {
+  width: 90%;
+  margin: 1.4rem auto;
 }
 
-.title{
-    text-align: center;
-    margin-bottom: 3rem;
+.title {
+  text-align: center;
+  margin-bottom: 3rem;
 
-    h1{
-        font-size: 2rem;
-        color: black;
-        text-transform: uppercase;
-        font-weight: 500;
-    }
+  h1 {
+    font-size: 2rem;
+    color: black;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
 }
 
-button{
-    margin-bottom: 1rem;
-    // background-color: #caf5e8;
-    // color: white;
+button {
+  margin-bottom: 1rem;
+  // background-color: #caf5e8;
+  // color: white;
 }
 
-.table{
-    width: 100%;
+.table {
+  width: 100%;
 }
 
-.edit{
-    color: #FFB33F;
+.edit {
+  color: #ffb33f;
 }
 
-.delete{
-    color: #FF3F3F;
+.delete {
+  color: #ff3f3f;
 }
 
 .mat-mdc-form-field {
-    font-size: 14px;
-    width: 100%;
+  font-size: 14px;
+  width: 100%;
+}
+@media screen and (max-width: 800px) {
+    
+  .hide-800 {
+    display: none;
   }
+}

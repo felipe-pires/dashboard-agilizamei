@@ -92,3 +92,15 @@ table {
     font-size: 14px;
     width: 100%;
   }
+
+  @media screen and (max-width: 800px) {
+    
+    .hide-800 {
+      display: none;
+    }
+  }
+  
+
+  .mat-elevation-z8 {    
+    overflow-x: auto;
+   }

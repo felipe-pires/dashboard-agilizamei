@@ -26,6 +26,7 @@
         <h2>Produtos: </h2>
 
     <h2>items incluidos:</h2>
+    <div class="mat-elevation-z8">
     <table mat-table [dataSource]="compra.itemsPurchases">
       <!-- Nome da coluna -->
       <ng-container matColumnDef="product">
@@ -48,7 +49,7 @@
       <tr mat-row *matRowDef="let row; columns: ordemColunasTabela;"></tr>
 
     </table>
-    
+    </div>
 
       </mat-card-content>
     </mat-card>
