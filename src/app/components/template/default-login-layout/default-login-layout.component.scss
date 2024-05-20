@@ -94,3 +94,12 @@ main {
         }
     }
 }
+
+@media screen and (max-width: 800px) {
+    main{
+        .main-section {
+          display: none;
+        }
+    }
+   
+  }
