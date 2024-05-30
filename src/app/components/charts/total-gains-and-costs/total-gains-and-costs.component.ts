@@ -85,7 +85,7 @@ export class TotalGainsAndCostsComponent {
             },
           },
         ],
-        colors: ['#8DECB4','#EE4E4E']
+        colors: ['#37D842','#DA2424']
       };
     });
   }
